@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo App - Simple Task Manager</title>
+    <title>Advanced Todo App - Full Featured</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -468,7 +468,11 @@
     <div class="app-container">
         <!-- Header -->
         <div class="header">
-            <h1><i class="fas fa-check-circle"></i> Todo App</h1>
+            <button class="download-btn" onclick="downloadCode()">
+                <i class="fas fa-download"></i> Download Code
+            </button>
+            <h1><i class="fas fa-tasks"></i> Advanced Todo App</h1>
+            <p>Organize your tasks with style and efficiency</p>
         </div>
 
         <!-- Statistics -->
@@ -497,10 +501,46 @@
                 <input type="text" 
                        class="todo-input" 
                        id="todoInput" 
-                       placeholder="Enter your task..." 
-                       maxlength="100">
+                       placeholder="Enter your task here..." 
+                       maxlength="200">
+                <select class="priority-select" id="prioritySelect">
+                    <option value="low">Low Priority</option>
+                    <option value="medium" selected>Medium Priority</option>
+                    <option value="high">High Priority</option>
+                </select>
                 <button class="add-btn" onclick="addTodo()">
-                    <i class="fas fa-plus"></i> Add
+                    <i class="fas fa-plus"></i> Add Task
+                </button>
+            </div>
+
+            <!-- Search -->
+            <div class="search-container">
+                <input type="text" 
+                       class="search-input" 
+                       id="searchInput" 
+                       placeholder="Search tasks..."
+                       oninput="filterTodos()">
+            </div>
+
+            <!-- Filters -->
+            <div class="filters">
+                <button class="filter-btn active" onclick="setFilter('all')" data-filter="all">
+                    <i class="fas fa-list"></i> All
+                </button>
+                <button class="filter-btn" onclick="setFilter('pending')" data-filter="pending">
+                    <i class="fas fa-clock"></i> Pending
+                </button>
+                <button class="filter-btn" onclick="setFilter('completed')" data-filter="completed">
+                    <i class="fas fa-check"></i> Completed
+                </button>
+                <button class="filter-btn" onclick="setFilter('high')" data-filter="high">
+                    <i class="fas fa-exclamation"></i> High Priority
+                </button>
+                <button class="filter-btn" onclick="setFilter('medium')" data-filter="medium">
+                    <i class="fas fa-minus"></i> Medium Priority
+                </button>
+                <button class="filter-btn" onclick="setFilter('low')" data-filter="low">
+                    <i class="fas fa-arrow-down"></i> Low Priority
                 </button>
             </div>
         </div>
@@ -508,9 +548,9 @@
         <!-- Todos Container -->
         <div class="todos-container" id="todosContainer">
             <div class="empty-state" id="emptyState">
-                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3d1455ed-f0ed-4bf2-b533-f7ff553d4143.png" alt="Todo app placeholder image" />
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f9084d14-c800-4764-b35d-8d4bcc323166.png" alt="Minimalist illustration of an empty checklist with soft colors showing a clipboard with blank checkboxes and a gentle background" />
                 <h3>No tasks yet!</h3>
-                <p>Add your first task above to get started.</p>
+                <p>Add your first task above to get started on your productivity journey.</p>
             </div>
         </div>
 
